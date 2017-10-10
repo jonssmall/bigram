@@ -12,6 +12,19 @@ const buildHistogram = wfString => {
   }, {});
 };
 
+/*
+  Input: The contents of the text file input as a string.
+  Output: A well-formed string.
+*/
+const cleanInput = str => {
+  return str.replace(/[^a-zA-Z0-9 ]/g, '')
+            .replace(/\s{2,}/g,' ')
+            .toLowerCase()
+            .trim();            
+};
+
+
 module.exports = {
-  buildHistogram
+  buildHistogram,
+  cleanInput
 };

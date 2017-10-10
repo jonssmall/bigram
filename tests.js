@@ -20,3 +20,15 @@ describe("The histogram builder", function() {
     expect(utilities.buildHistogram(input)).toEqual(result);
   });
 });
+
+describe("The input cleaner", function() {
+  const input = "      $$The, QUICK brown, fOx    and the qUIck blue%!%,,   hare.      !";
+  const result = "the quick brown fox and the quick blue hare";
+  
+  it("outputs a string", function() {    
+    expect(typeof utilities.cleanInput(input)).toBe("string");
+  });
+  it("returns a well-formed string", function() {    
+    expect(utilities.cleanInput(input)).toBe(result);
+  });
+});
