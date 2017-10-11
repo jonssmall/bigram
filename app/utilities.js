@@ -1,6 +1,8 @@
+'use strict';
 /*
   Input: The contents of the text file input as a string.
-  Output: A well-formed string.
+  Output: A well-formed string - no special characters, capitalization, excess whitespace etc.
+    e.g. "the quick brown fox and the quick blue hare"
 */
 const cleanInput = str => {
   return str.toLowerCase()
@@ -10,8 +12,7 @@ const cleanInput = str => {
 };
 
 /*
-  Input: A well-formed string - no special characters, capitalization, excess whitespace etc.
-    e.g. "the quick brown fox and the quick blue hare"
+  Input: A well-formed string.
   Output: A histogram of bigram frequencies.
 */
 const buildHistogram = wfString => {
