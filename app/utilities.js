@@ -1,4 +1,15 @@
 /*
+  Input: The contents of the text file input as a string.
+  Output: A well-formed string.
+*/
+const cleanInput = str => {
+  return str.toLowerCase()
+            .replace(/[^a-z0-9\s]/g, '')
+            .replace(/\s{1,}/g,' ')
+            .trim();    
+};
+
+/*
   Input: A well-formed string - no special characters, capitalization, excess whitespace etc.
     e.g. "the quick brown fox and the quick blue hare"
   Output: A histogram of bigram frequencies.
@@ -12,18 +23,7 @@ const buildHistogram = wfString => {
   }, {});
 };
 
-/*
-  Input: The contents of the text file input as a string.
-  Output: A well-formed string.
-*/
-const cleanInput = str => {
-  return str.replace(/[^a-zA-Z0-9\s]/g, '')
-            .replace(/\s{2,}/g,' ')
-            .toLowerCase()
-            .trim();    
-};
-
 module.exports = {
-  buildHistogram,
-  cleanInput
+  cleanInput,
+  buildHistogram
 };

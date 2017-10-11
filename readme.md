@@ -1,4 +1,4 @@
-Problem:
+# Problem:
 Create a histogram of bigrams (adjacent words) from a text file input.
 ex.
 Input:
@@ -12,14 +12,14 @@ Output:
 “quick blue” 1
 “blue hare” 1
 
-Installation requirements:
+# Installation requirements:
 nodeJS 6.9.4 or higher to ensure ES6 features are supported.
 Run "npm install" and then "npm test" to execute unit test coverage.
 
-Example Usage:
+# Example Usage:
 node main.js ../sampleFiles/supported/sample.txt
 
-Solution notes:
+# Solution notes:
 The problem is divided into 3 sub problems:
 1) Acquiring text content with support for multiple file extensions
 2) Converting the text into well-formed data free from punctuation, special characters, excessive whitespace, etc.
