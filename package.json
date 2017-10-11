@@ -4,7 +4,7 @@
   "description": "Problem:\r Create a histogram of bigrams (adjacent words) from a text file input.\r ex.\r Input:\r “The quick brown fox and the quick blue hare.”\r Output:\r “the quick” 2\r “quick brown” 1\r “brown fox” 1\r “fox and” 1\r “and the” 1\r “quick blue” 1\r “blue hare” 1",
   "main": "main.js",
   "scripts": {
-    "test": "jasmine tests.js"
+    "test": "jasmine app/tests.js"
   },
   "author": "",
   "license": "ISC",

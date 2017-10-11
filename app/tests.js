@@ -23,6 +23,10 @@ describe("The histogram builder", function() {
 
 describe("The input cleaner", function() {
   const input = "      $$The, QUICK brown, fOx    and the qUIck blue%!%,,   hare.      !";
+  // const newlineInput = `      $$The,  QUICK brown, fOx    
+  //   and the qUIck blue%!%,,   hare.      !`;
+  const newlineInput = `the quick brown fox
+  and the quick blue hare`
   const result = "the quick brown fox and the quick blue hare";
   
   it("outputs a string", function() {    
@@ -30,5 +34,8 @@ describe("The input cleaner", function() {
   });
   it("returns a well-formed string", function() {    
     expect(utilities.cleanInput(input)).toBe(result);
+  });
+  it("handles newlines and tabs", function() {    
+    expect(utilities.cleanInput(newlineInput)).toBe(result);
   });
 });

@@ -17,12 +17,11 @@ const buildHistogram = wfString => {
   Output: A well-formed string.
 */
 const cleanInput = str => {
-  return str.replace(/[^a-zA-Z0-9 ]/g, '')
+  return str.replace(/[^a-zA-Z0-9\s]/g, '')
             .replace(/\s{2,}/g,' ')
             .toLowerCase()
-            .trim();            
+            .trim();    
 };
-
 
 module.exports = {
   buildHistogram,

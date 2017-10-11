@@ -13,10 +13,11 @@ Output:
 “blue hare” 1
 
 Installation requirements:
-Node.JS 6.9.4 or higher to ensure ES6 features are supported.
+nodeJS 6.9.4 or higher to ensure ES6 features are supported.
+Run "npm install" and then "npm test" to execute unit test coverage.
 
 Example Usage:
-node main.js <your file here>
+node main.js ../sampleFiles/supported/sample.txt
 
 Solution notes:
 The problem is divided into 3 sub problems:
@@ -25,8 +26,8 @@ The problem is divided into 3 sub problems:
 3) Iterating the collection of word pairs and sorting each into a hash structure to be output.
 
 As a homework exercise this application is unlikely to have exhaustive support for every extension in every OS.
-For best results, please test with a .txt file. Limitations for other file types are described in the documentation for
-**link to textract npm**
+For best results, please test with a .txt file. Experimenting with off-the-shelf nodeJS reveals support for txt, docx, rtf, xml,
+but not pdf, odt, or doc.
 
-Regarding a "well-formed" data string, the app assumes that a-z, A-Z, and 0-9 are acceptable characters when forming a
+Regarding a "well-formed" data string, the app assumes that a-z and 0-9 are acceptable characters when forming a
 space-delimited list of words. Take a look at the cleanInput test coverage for an example of this transformation.
