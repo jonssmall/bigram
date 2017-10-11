@@ -23,3 +23,10 @@ The problem is divided into 3 sub problems:
 1) Acquiring text content with support for multiple file extensions
 2) Converting the text into well-formed data free from punctuation, special characters, excessive whitespace, etc.
 3) Iterating the collection of word pairs and sorting each into a hash structure to be output.
+
+As a homework exercise this application is unlikely to have exhaustive support for every extension in every OS.
+For best results, please test with a .txt file. Limitations for other file types are described in the documentation for
+**link to textract npm**
+
+Regarding a "well-formed" data string, the app assumes that a-z, A-Z, and 0-9 are acceptable characters when forming a
+space-delimited list of words. Take a look at the cleanInput test coverage for an example of this transformation.
