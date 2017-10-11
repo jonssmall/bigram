@@ -21,7 +21,9 @@ nodeJS 6.9.4 or higher to ensure ES6 features are supported.
 Run `npm install` and then `npm test` to execute unit test coverage.
 
 # Example Usage:
-node main.js ../sampleFiles/supported/sample.txt
+From project root run `node app/main.js ./sampleFiles/supported/sample.txt`
+
+or `npm start`
 
 # Solution notes:
 The problem is divided into 3 sub problems:
