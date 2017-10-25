@@ -26,9 +26,25 @@ describe("The input cleaner", () => {
   });
 });
 
-describe("The histogram builder", () => {
+describe("The pair builder", () => {
   const input = "the quick brown fox and the quick blue hare";
+  const result = [ 'the quick', 'quick brown', 'brown fox', 'fox and', 'and the', 'the quick', 'quick blue', 'blue hare' ];
   const pairCount = 8;
+
+  it("outputs an object", () => {    
+    expect(typeof utilities.getPairs(input)).toBe("object");
+  });
+  it("returns an array of adjacent pair strings", () => {    
+    expect(utilities.getPairs(input)).toEqual(result);
+    expect(typeof utilities.getPairs(input)[0]).toBe("string");    
+  });
+  it("returns an array of length one less than the number of individual words", () => {        
+    expect(utilities.getPairs(input).length).toBe(pairCount);
+  });
+});
+
+describe("The histogram builder", () => {
+  const input = [ 'the quick', 'quick brown', 'brown fox', 'fox and', 'and the', 'the quick', 'quick blue', 'blue hare' ];  
   const result = { 
     'the quick': 2,
     'quick brown': 1,
@@ -44,14 +60,10 @@ describe("The histogram builder", () => {
   });  
   it("returns the correct count", () => {    
     expect(utilities.buildHistogram(input)).toEqual(result);
-  });
-  it("sums up to the number of pairs", () => {
-    const histogram = utilities.buildHistogram(input);
-    const sum = Object.keys(histogram).reduce((acc, e) => { return acc + histogram[e] }, 0);
-    expect(sum).toBe(pairCount);
-  });
+  });  
   it("builds from a large string", () => {
-    const bigInput = require('./large').text;    
+    const bigText = require('./large').text;
+    const bigInput = utilities.getPairs(bigText); // calling a different testable function in arrange phase, how to move
     const bigResult = { 
       'the quick': 320,
       'quick brown': 160,

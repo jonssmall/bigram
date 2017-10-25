@@ -13,12 +13,19 @@ const cleanInput = str => {
 
 /*
   Input: A well-formed string.
+  Output: An array of adjacent word pairs as strings.
+*/
+const getPairs = wfString => {
+  const words = wfString.split(' ');
+  return words.slice(1).map((e, i, a) => words[i] + ' ' + a[i]);
+};
+
+/*
+  Input: An array of adjacent word pairs.
   Output: A histogram of bigram frequencies.
 */
-const buildHistogram = wfString => {
-  const words = wfString.split(' ');
-  return words.slice(1).reduce((acc,e,i,a) => {
-    const pair = `${words[i]} ${a[i]}`;
+const buildHistogram = pairArray => {  
+  return pairArray.reduce((acc,pair) => {    
     acc[pair] = acc[pair] ? ++acc[pair] : 1;
     return acc;
   }, {});
@@ -26,5 +33,6 @@ const buildHistogram = wfString => {
 
 module.exports = {
   cleanInput,
+  getPairs,
   buildHistogram
 };
