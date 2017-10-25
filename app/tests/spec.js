@@ -28,6 +28,7 @@ describe("The input cleaner", () => {
 
 describe("The histogram builder", () => {
   const input = "the quick brown fox and the quick blue hare";
+  const pairCount = 8;
   const result = { 
     'the quick': 2,
     'quick brown': 1,
@@ -40,14 +41,14 @@ describe("The histogram builder", () => {
 
   it("outputs an object", () => {    
     expect(typeof utilities.buildHistogram(input)).toBe("object");
-  });
-  it("sums up to the number of pairs", () => {
-    const pairCount = input.split(' ').length - 1;    
-    const sum = Object.keys(result).reduce((acc, e) => { return acc + result[e] }, 0);
-    expect(sum).toBe(pairCount);
-  });
+  });  
   it("returns the correct count", () => {    
     expect(utilities.buildHistogram(input)).toEqual(result);
+  });
+  it("sums up to the number of pairs", () => {
+    const histogram = utilities.buildHistogram(input);
+    const sum = Object.keys(histogram).reduce((acc, e) => { return acc + histogram[e] }, 0);
+    expect(sum).toBe(pairCount);
   });
   it("builds from a large string", () => {
     const bigInput = require('./large').text;    
